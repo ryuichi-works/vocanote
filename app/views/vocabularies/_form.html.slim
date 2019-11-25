@@ -1,0 +1,11 @@
+= form_with model: vocabulary, local: true do |f|
+  .form-group
+    = f.label :word
+    = f.text_field :word, class: 'form-control', id: 'vocabulary_word'
+  .form-group
+    = f.label :meaning
+    = f.text_field :meaning, class: 'form-control', id: 'vocabulary_meaning'
+  .form-group
+    = f.label :comment
+    = f.text_area :comment, row: 5, class: 'form-control', id: 'vocabulary_comment'
+  = f.submit '登録', class: 'btn btn-primary'

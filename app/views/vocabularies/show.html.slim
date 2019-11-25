@@ -1,0 +1,19 @@
+h1.mt-4.mb-4 = @vocabulary.word
+
+
+table.table.table-hover
+  / tr 
+  /   th 単語
+  /   td= @vocabulary.word
+  tr
+    th 意味
+    td= @vocabulary.meaning
+  tr
+    th コメント
+    - if @vocabulary.comment
+      td= simple_format(h(@vocabulary.comment), {}, sanitize: false, wraper_tag: "div")
+      / = @vocabulary.comment
+    - else
+      td なし
+= link_to '編集', edit_vocabulary_path, class: 'btn btn-primary'
+= link_to '削除', vocabulary_path(@vocabulary), method: :delete, data: {confirm: "#{@vocabulary.word}を削除します。よろしいですか？"}, class: 'btn btn-danger ml-1'

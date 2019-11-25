@@ -1,0 +1,20 @@
+= link_to '単語登録', new_vocabulary_path, class: 'btn btn-primary'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th 単語
+      th 意味
+      th
+  tbody
+    - @vocabularies.each do |vocabulary|
+      tr
+        td= link_to vocabulary.word, vocabulary
+        td= vocabulary.meaning
+        td
+          = link_to '編集', edit_vocabulary_path(vocabulary), class: 'btn btn-primary mr-3'
+          = link_to '削除', vocabulary_path(vocabulary.id), method: :delete, data: {confirm: "「#{vocabulary.word}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
+
+
+
