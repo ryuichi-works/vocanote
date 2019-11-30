@@ -1,0 +1,20 @@
+h1 ユーザー一覧
+
+table.table.table-hover
+  thead.thead-default
+    tr
+      th 名前
+      th メールアドレス
+      th.hide 登録日時
+      th.hide 最終更新日時
+      th
+  tbody
+    - @users.each do |user|
+      tr
+        td= link_to user.name, user_path(user.id)
+        td= user.email
+        td.hide= user.created_at
+        td.hide= user.updated_at
+        td
+          = link_to '編集', edit_user_path(user), class: 'btn btn-primary'
+          = link_to '削除', user, method: :delete, data: {confirm: "ユーザー「#{user.name}」を削除しますがよろしいですか？"}, class: 'btn btn-danger ml-2'

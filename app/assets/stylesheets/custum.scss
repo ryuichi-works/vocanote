@@ -1,32 +1,11 @@
-// p {
-//   width: 300px;
-//   margin: 0 auto;
-//   cursor: pointer;
-// }
+.logo-name {
+  font-size: 28px;
+  font-weight: bold;
+}
 
+// index.html.slim
 
-// li {
-//   list-style : none;
-// }
-
-// header {
-//   display: flex;
-//   justify-content: space-between;
-//   color: red;
-//   .header-left{
-//     a {
-//       color: red;
-//       text-decoration: none;
-//     }
-//   }
-//   .header-right {
-//     ul {
-//       display: flex;
-//     }
-//     display: flex;
-    
-//   }
-// }
-// .header-left {
-
-// }
+.word {
+  font-size: 20px;
+  font-weight: 600;
+}

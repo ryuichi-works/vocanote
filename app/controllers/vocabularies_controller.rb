@@ -22,9 +22,12 @@ class VocabulariesController < ApplicationController
   end
 
   def create
-    vocabulary = Vocabulary.new(vocabulary_params)
-    vocabulary.save!
-    redirect_to vocabularies_url, notice: "word「#{vocabulary.word}」を登録しました"
+    @vocabulary = Vocabulary.new(vocabulary_params)
+    if @vocabulary.save
+      redirect_to @vocabulary, notice: "word「#{@vocabulary.word}」を登録しました"
+    else
+      render :new
+    end
   end
 
   def destroy

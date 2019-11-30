@@ -1,4 +1,4 @@
-= link_to '単語登録', new_vocabulary_path, class: 'btn btn-primary'
+= link_to '単語登録', new_vocabulary_path, class: 'btn btn-primary mt-3'
 
 .mb-3
 table.table.table-hover
@@ -10,7 +10,7 @@ table.table.table-hover
   tbody
     - @vocabularies.each do |vocabulary|
       tr
-        td= link_to vocabulary.word, vocabulary
+        td= link_to vocabulary.word, vocabulary, class: 'word'
         td= vocabulary.meaning
         td
           = link_to '編集', edit_vocabulary_path(vocabulary), class: 'btn btn-primary mr-3'

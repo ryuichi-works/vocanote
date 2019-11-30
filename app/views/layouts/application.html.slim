@@ -9,11 +9,17 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .navbar.navbar-light.bg-light
-      .nabar-brand VocaNote
-      nav.nav
-        = link_to '新規登録', '#', class: 'nav-link'
-        = link_to 'ログイン', '#', class: 'nav-link'
+      .nabar-brand.logo-name VocaNote
+      nav.nav.justify-content-end
+      - if current_user
+        
         = link_to '単語一覧', vocabularies_path, class: 'nav-link'
+        = link_to 'ユーザー一覧', users_path, class: 'nav-link'
+        = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
+      - else
+        = link_to '新規登録', new_user_path, class: 'nav-link'
+        = link_to 'ログイン', login_path, class: 'nav-link'
+        
     .container
       - if flash[:notice].present?
         .alert.alert-success= flash[:notice]
