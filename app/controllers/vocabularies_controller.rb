@@ -1,6 +1,6 @@
 class VocabulariesController < ApplicationController
   def index
-    @vocabularies = Vocabulary.all
+    @vocabularies = current_user.vocabularies
   end
 
   def show
@@ -22,7 +22,8 @@ class VocabulariesController < ApplicationController
   end
 
   def create
-    @vocabulary = Vocabulary.new(vocabulary_params)
+    # @vocabulary = Vocabulary.new(vocabulary_params)
+    @vocabulary = current_user.vocabularies.new(vocabulary_params)
     if @vocabulary.save
       redirect_to @vocabulary, notice: "word「#{@vocabulary.word}」を登録しました"
     else

@@ -1,6 +1,9 @@
-.logo-name {
+.logo-name a{
   font-size: 28px;
   font-weight: bold;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 // index.html.slim
@@ -8,4 +11,9 @@
 .word {
   font-size: 20px;
   font-weight: 600;
+  
+  &:hover {
+    text-decoration: none;
+    color: red;
+  }
 }

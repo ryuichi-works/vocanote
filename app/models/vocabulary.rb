@@ -7,6 +7,7 @@ class Vocabulary < ApplicationRecord
 
   validate :validate_word_not_including_mark
 
+  belongs_to :user
   private
     def validate_word_not_including_mark
       if word&.include?('?') || word&.include?('%') || word&.include?('#')
