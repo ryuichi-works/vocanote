@@ -4,7 +4,7 @@ class VocabulariesController < ApplicationController
   end
 
   def show
-    @vocabulary = Vocabulary.find(params[:id])
+    @vocabulary = current_user.vocabularies.find(params[:id])
   end
 
   def new
@@ -12,11 +12,11 @@ class VocabulariesController < ApplicationController
   end
 
   def edit   
-    @vocabulary = Vocabulary.find(params[:id])
+    @vocabulary = current_user.vocabularies.find(params[:id])
   end
 
   def update
-    vocabulary = Vocabulary.find(params[:id])
+    vocabulary = current_user.vocabularies.find(params[:id])
     vocabulary.update!(vocabulary_params)
     redirect_to vocabularies_url, notice: '単語情報を更新しました'
   end
@@ -32,7 +32,7 @@ class VocabulariesController < ApplicationController
   end
 
   def destroy
-    vocabulary = Vocabulary.find(params[:id])
+    vocabulary = current_user.vocabularies.find(params[:id])
     vocabulary.destroy
     redirect_to vocabularies_url, notice: "#{vocabulary.word}を削除しました。"
   end
