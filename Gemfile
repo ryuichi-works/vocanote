@@ -69,3 +69,5 @@ gem 'html2slim'
 gem 'sassc-rails'
 gem 'bootstrap'
 gem 'jquery-rails'
+
+gem 'kaminari'

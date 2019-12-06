@@ -1,6 +1,8 @@
-= link_to '単語登録', new_vocabulary_path, class: 'btn btn-primary mt-3'
+= link_to '単語登録', new_vocabulary_path, class: 'btn btn-primary mt-3 mb-3'
+
 
 .mb-3
+  = page_entries_info @vocabularies
 table.table.table-hover
   thead.thead-default
     tr
@@ -15,6 +17,8 @@ table.table.table-hover
         td
           = link_to '編集', edit_vocabulary_path(vocabulary), class: 'btn btn-primary mr-3'
           = link_to '削除', vocabulary_path(vocabulary.id), method: :delete, data: {confirm: "「#{vocabulary.word}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
+.mb-3
+  = paginate @vocabularies
 
 
 

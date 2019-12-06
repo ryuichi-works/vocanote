@@ -1,6 +1,6 @@
 class VocabulariesController < ApplicationController
   def index
-    @vocabularies = current_user.vocabularies
+    @vocabularies = current_user.vocabularies.page(params[:page]).per(15)
   end
 
   def show
